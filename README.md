@@ -1,6 +1,9 @@
 # WpfSimpleViewManager
 
-WpfSimpleViewManager는 WPF MVVM 애플리케이션을 위한 간단하고 가벼운 뷰(View) 관리 라이브러리입니다. **Region 기반**의 화면 탐색과 직관적인 다이얼로그 서비스를 `Microsoft.Extensions.DependencyInjection`을 통해 손쉽게 구성하고 사용할 수 있도록 도와줍니다.
+WpfSimpleViewManager는 WPF MVVM 애플리케이션을 위한 간단하고 가벼운 뷰(View) 관리 라이브러리입니다. 
+
+**Region 기반**의 화면 탐색과 직관적인 다이얼로그 서비스를 `Microsoft.Extensions.DependencyInjection`을 통해 손쉽게 구성하고 사용할 수 있도록 도와줍니다.
+
 Prism을 모방했습니다.
 
 ## ✨ 주요 기능
