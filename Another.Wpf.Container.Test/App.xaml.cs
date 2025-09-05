@@ -35,7 +35,7 @@ namespace WpfSimpleViewManager.Test
             return hostBuilder.ConfigureServices(services =>
             {
                 // Services
-                services.AddWpfContainerService();
+                services.AddWpfSimpleViewManager();
                 services.AddTransient<MainWindowViewModel>();
                 services.AddTransientDialog<TestDialog,TestDialogViewModel>();
 

@@ -12,7 +12,7 @@ namespace WpfSimpleViewManager.Extensions
 {
     public static class ServiceAdder
     {
-        public static IServiceCollection AddWpfContainerService(this IServiceCollection services)
+        public static IServiceCollection AddWpfSimpleViewManager(this IServiceCollection services)
         {
             ///////////////////////////naviagtion
             NavigationService navigationService = new NavigationService();
@@ -27,9 +27,6 @@ namespace WpfSimpleViewManager.Extensions
 
             NavigationServiceExtensions._navigationRegister = navigationService;
 
-
-
-
             /////////////////////////Dialog
             DialogService dialogService = new DialogService();
             // DialogService를 싱글톤으로 등록
@@ -40,7 +37,6 @@ namespace WpfSimpleViewManager.Extensions
             services.AddSingleton<IDialogRegister>(dialogService);
 
             DialogServiceExtensions._dialogRegister = dialogService;
-
 
             return services;
         }
