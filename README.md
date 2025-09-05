@@ -58,30 +58,47 @@ public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
 }
 ```
 
-### Region 등록 (Navi)
-Region 등록: XAML에서 ContentControl 같은 컨트롤에 regionManager:RegionManager.RegionName="MainRegion"과 같이 Region 이름을 지정합니다.
-```
+### 🗂 Region 등록 (Navi)
+
+XAML에서 `ContentControl` 같은 컨트롤에  
+`regionManager:RegionManager.RegionName="MainRegion"` 속성을 지정하여 Region을 등록합니다.
+
+```xml
 <Window
-    --skip--
-    xmlns:regionmanager="clr-namespace:WpfSimpleViewManager.Region;assembly=WpfSimpleViewManager"
->
+    x:Class="YourApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:regionmanager="clr-namespace:WpfSimpleViewManager.Region;assembly=WpfSimpleViewManager">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-            <ContentControl Grid.Row="0" regionmanager:RegionManager.RegionName="MainRegion" />
-            <Button Command="{Binding NavigateCommand}" Height="50" Grid.Row="1"/>
+
+        <!-- MainRegion 등록 -->
+        <ContentControl Grid.Row="0"
+                        regionmanager:RegionManager.RegionName="MainRegion" />
+
+        <Button Grid.Row="1"
+                Height="50"
+                Command="{Binding NavigateCommand}"
+                Content="Go" />
     </Grid>
 </Window>
+---
 
-```
+### 📌 Use
 
-### Use
 #### 호출하는 곳
-Navigation: Inject INavigationService and call the MapsTo("RegionName", "ViewName", Parameters) method to switch views.
 
-Dialogs: Inject IDialogService and call the ShowDialog("DialogName", Parameters, callback) method to open a dialog.
+- **Navigation**  
+  `INavigationService`를 주입받아  
+  `NavigateTo("RegionName", "ViewName", Parameters)` 메서드를 호출하면 지정한 Region에 View가 교체됩니다.
+
+- **Dialogs**  
+  `IDialogService`를 주입받아  
+  `ShowDialog("DialogName", Parameters, callback)` 메서드를 호출하면 다이얼로그를 띄울 수 있습니다.
 ```
 private readonly INavigationService _navigationService;
 private readonly IDialogService _dialogService;
@@ -128,8 +145,12 @@ private void Dialog()
    });
 }
 ```
-#### INaviateAware, IDialogAware
-Parameter Handling: Implement the INavigateAware and IDialogAware interfaces in your ViewModel to receive parameters when a view is opened or navigated to, and to handle logic when it closes.
+#### 🔄 INavigateAware & IDialogAware
+
+**Parameter Handling**  
+ViewModel에서 `INavigateAware` 와 `IDialogAware` 인터페이스를 구현하면,  
+뷰가 열리거나 내비게이션될 때 파라미터를 안전하게 전달받고  
+닫힐 때 관련 로직을 처리할 수 있습니다.
 ```
 INavigateAware
 internal partial class CommonViewModel : ViewModelBase, INavigateAware
