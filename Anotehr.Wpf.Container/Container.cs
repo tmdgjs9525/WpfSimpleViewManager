@@ -1,8 +1,7 @@
-﻿using System.Windows.Controls;
-using WpfSimpleViewManager.Core;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Controls;
 using WpfSimpleViewManager.Dialog;
 using WpfSimpleViewManager.Navigate;
-using Microsoft.Extensions.DependencyInjection;
 using NavigationService = WpfSimpleViewManager.Navigate.NavigationService;
 
 namespace WpfSimpleViewManager

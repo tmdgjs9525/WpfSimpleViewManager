@@ -1,16 +1,10 @@
-﻿using WpfSimpleViewManager.Dialog;
+﻿using CommunityToolkit.Mvvm.Input;
+using WpfSimpleViewManager.Dialog;
 using WpfSimpleViewManager.Navigate;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WpfSimpleViewManager.Test
 {
-    public partial class MainWindowViewModel : ObservableObject
+    internal partial class MainWindowViewModel : ViewModelBase
     {
         private readonly IDialogService _dialogService;
         private readonly INavigationService _navigationService;
@@ -34,7 +28,14 @@ namespace WpfSimpleViewManager.Test
             }
 
             _view = !_view;
-            //_dialogService.ShowDialog("TestDialog", startPosition: StartPosition.Left);
+            _dialogService.ShowDialog("TestDialog", parameters : new Parameter.Parameters() 
+            {
+
+            }, callback: result =>
+            {
+
+            }
+             );
 
         }
     }

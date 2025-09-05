@@ -1,13 +1,6 @@
-﻿using WpfSimpleViewManager.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfSimpleViewManager.Test.TestViewModels
+﻿namespace WpfSimpleViewManager.Test.TestViewModels
 {
-    internal class AViewModel : IViewModelBase
+    internal class AViewModel : ViewModelBase
     {
     }
 }

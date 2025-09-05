@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using WpfSimpleViewManager.Core;
 using WpfSimpleViewManager.Parameter;
 
 namespace WpfSimpleViewManager.Navigate

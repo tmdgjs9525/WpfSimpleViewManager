@@ -1,12 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using WpfSimpleViewManager.Core;
 using WpfSimpleViewManager.Dialog;
 using WpfSimpleViewManager.Parameter;
 
 namespace WpfSimpleViewManager.Test
 {
-    public partial class TestDialogViewModel : ObservableObject,IViewModelBase, IDialogAware
+    internal partial class TestDialogViewModel : ViewModelBase, IDialogAware
     {
         public string? Title { get; set; }
 
@@ -23,12 +22,6 @@ namespace WpfSimpleViewManager.Test
 
         public void OnDialogOpened(Parameters parameters)
         {
-        }
-
-        [RelayCommand]
-        private void Loaded()
-        {
-
         }
 
         [RelayCommand]

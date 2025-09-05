@@ -1,9 +1,6 @@
-using System.Windows.Controls;
-using WpfSimpleViewManager.Extensions;
-using WpfSimpleViewManager.Core;
-using WpfSimpleViewManager.Dialog;
-using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Controls;
+using WpfSimpleViewManager.Dialog;
 
 namespace WpfSimpleViewManager.Extensions
 {

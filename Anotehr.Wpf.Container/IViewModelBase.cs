@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace WpfSimpleViewManager.Core
+namespace WpfSimpleViewManager
 {
     public interface IViewModelBase
     {

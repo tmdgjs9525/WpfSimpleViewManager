@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfSimpleViewManager.Test.TestViewModels
+namespace WpfSimpleViewManager.Test
 {
-    internal class BViewModel : ViewModelBase
+    internal interface IMainView
     {
     }
 }

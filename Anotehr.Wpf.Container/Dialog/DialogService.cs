@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using WpfSimpleViewManager.Extensions;
-using WpfSimpleViewManager.Core;
 using WpfSimpleViewManager.Parameter;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace WpfSimpleViewManager.Dialog
 {

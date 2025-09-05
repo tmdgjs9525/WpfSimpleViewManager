@@ -1,7 +1,6 @@
-﻿using WpfSimpleViewManager.Core;
-using WpfSimpleViewManager.Navigate;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Windows.Controls;
+using WpfSimpleViewManager.Navigate;
 
 namespace WpfSimpleViewManager.Extensions
 {

@@ -37,15 +37,14 @@ namespace WpfSimpleViewManager.Test
                 // Services
                 services.AddWpfSimpleViewManager();
                 services.AddTransient<MainWindowViewModel>();
+
+                services.AddSingletonNavigation<IMainView, MainWindow, MainWindowViewModel>();
+
                 services.AddTransientDialog<TestDialog,TestDialogViewModel>();
 
                 var vm = new CommonViewModel();
-
-                services.AddSingletonNavigation<BView, CommonViewModel>();
-
-                var a = new CommonViewModel();
-                services.AddTransientNavigation<AView>(a);
-
+                services.AddTransientNavigation<AView>(vm);
+                services.AddSingletonNavigation<BView>(vm);
                 //services.AddTransientNavigation<AView>(vm);
                 //services.AddTransientNavigation<BView>(vm);
             });
