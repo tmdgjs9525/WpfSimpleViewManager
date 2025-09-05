@@ -134,7 +134,8 @@ internal partial class CommonViewModel : ViewModelBase, INavigateAware
         Count++;
     }
 }
-
+```
+```
 internal partial class TestDialogViewModel : ViewModelBase, IDialogAware
 {
     public string? Title { get; set; }
