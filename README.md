@@ -61,9 +61,9 @@ public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
 ### 🗂 Region 등록 (Navi)
 
 XAML에서 `ContentControl` 같은 컨트롤에  
-`regionManager:RegionManager.RegionName="MainRegion"` 속성을 지정하여 Region을 등록합니다.
+regionManager:RegionManager.RegionName="MainRegion" 속성을 지정하여 Region을 등록합니다.
 
-```xml
+```
 <Window
     x:Class="YourApp.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -86,19 +86,19 @@ XAML에서 `ContentControl` 같은 컨트롤에
                 Content="Go" />
     </Grid>
 </Window>
----
+```
 
 ### 📌 Use
 
 #### 호출하는 곳
 
 - **Navigation**  
-  `INavigationService`를 주입받아  
-  `NavigateTo("RegionName", "ViewName", Parameters)` 메서드를 호출하면 지정한 Region에 View가 교체됩니다.
+  'INavigationService'를 주입받아  
+  'NavigateTo("RegionName", "ViewName", Parameters)' 메서드를 호출하면 지정한 Region에 View가 교체됩니다.
 
 - **Dialogs**  
-  `IDialogService`를 주입받아  
-  `ShowDialog("DialogName", Parameters, callback)` 메서드를 호출하면 다이얼로그를 띄울 수 있습니다.
+  'IDialogService'를 주입받아  
+  'ShowDialog("DialogName", Parameters, callback)' 메서드를 호출하면 다이얼로그를 띄울 수 있습니다.
 ```
 private readonly INavigationService _navigationService;
 private readonly IDialogService _dialogService;
