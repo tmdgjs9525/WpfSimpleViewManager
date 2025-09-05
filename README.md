@@ -1,8 +1,7 @@
 # WpfSimpleViewManager
 
-WpfSimpleViewManager는 WPF MVVM 애플리케이션을 위한 간단하고 가벼운 뷰(View) 관리 라이브러리입니다. 
-
-**Region 기반**의 화면 탐색과 직관적인 다이얼로그 서비스를 `Microsoft.Extensions.DependencyInjection`을 통해 손쉽게 구성하고 사용할 수 있도록 도와줍니다.
+**WPF MVVM**용 뷰(View) 관리 라이브러리입니다.  
+`Microsoft.Extensions.DependencyInjection` 기반으로 **Region 내비게이션**과 **다이얼로그 서비스**를 간단하게 구성할 수 있습니다.  
 
 Prism을 모방했습니다.
 
@@ -16,26 +15,20 @@ Prism을 모방했습니다.
 
 ---
 
-
-
-
 ## 의존성
 
-- **CommunityToolkit.Mvvm
-- **Microsoft.Extensions.DependencyInjection
-
-
-
+- [CommunityToolkit.Mvvm](https://learn.microsoft.com/dotnet/communitytoolkit/mvvm/introduction)  
+- [Microsoft.Extensions.DependencyInjection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection)  
 
 
 ## 사용 방법
 
 ### Di 등록
+
 services.AddWpfSimpleViewManager()를 통해 서비스를 등록하고, AddSingletonNavigation, AddTransientNavigation, AddSingletonDialog, AddTransientDialog 등의 확장 메서드를 사용하여 View와 ViewModel을 등록합니다.
-
-ViewModel은 WpfSImpleViewManager.IViewModelBase 구현이 필요합니다.
-
-View는 Control 이여야 합니다.
+> ⚠️ 규약  
+> - **ViewModel**은 `WpfSimpleViewManager.IViewModelBase`를 구현해야 합니다.  
+> - **View**는 `System.Windows.Controls.Control` 파생이어야 합니다.
 ```
 
 public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
