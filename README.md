@@ -25,6 +25,11 @@ Prism을 모방했습니다.
 ## 사용 방법
 
 ### Di 등록
+services.AddWpfSimpleViewManager()를 통해 서비스를 등록하고, AddSingletonNavigation, AddTransientNavigation, AddSingletonDialog, AddTransientDialog 등의 확장 메서드를 사용하여 View와 ViewModel을 등록합니다.
+
+ViewModel은 WpfSImpleViewManager.IViewModelBase 구현이 필요합니다.
+
+View는 Control 이여야 합니다.
 ```
 
 public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
@@ -32,10 +37,6 @@ public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
     return hostBuilder.ConfigureServices(services =>
     {
         services.AddWpfSimpleViewManager();
-
-        //View는 UserControl로 만들어질것을 예상하고 있음
-        //ViewModel은 WpfSimpleViewmanager의 IViewModelBase를 구현해야함
-        //ViewModelBase를 만들어 IViewModelBase 구현하세요
 
         //Navigate
         services.AddSingletonNavigation<BView, BViewModel>();
@@ -59,9 +60,10 @@ public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
 ```
 
 ### Region 등록 (Navi)
+Region 등록: XAML에서 ContentControl 같은 컨트롤에 regionManager:RegionManager.RegionName="MainRegion"과 같이 Region 이름을 지정합니다.
 ```
 <Window
-    --생략--
+    --skip--
     xmlns:regionmanager="clr-namespace:WpfSimpleViewManager.Region;assembly=WpfSimpleViewManager"
 >
     <Grid>
@@ -78,6 +80,9 @@ public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder)
 
 ### Use
 #### 호출하는 곳
+Navigation: Inject INavigationService and call the MapsTo("RegionName", "ViewName", Parameters) method to switch views.
+
+Dialogs: Inject IDialogService and call the ShowDialog("DialogName", Parameters, callback) method to open a dialog.
 ```
 private readonly INavigationService _navigationService;
 private readonly IDialogService _dialogService;
@@ -125,6 +130,7 @@ private void Dialog()
 }
 ```
 #### INaviateAware, IDialogAware
+Parameter Handling: Implement the INavigateAware and IDialogAware interfaces in your ViewModel to receive parameters when a view is opened or navigated to, and to handle logic when it closes.
 ```
 INavigateAware
 internal partial class CommonViewModel : ViewModelBase, INavigateAware
